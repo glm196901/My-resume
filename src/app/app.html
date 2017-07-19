@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+<body>
+<div class="content"></div>
+<script >
+  var item = [
+    {
+    	name:'Tom',
+      age:'70',
+      Child: [{
+    		name:'Jerry',
+        age: 50,
+        Child:[{
+      	  name: 'William',
+          age: 20 ,
+          Child: ['......']
+        }]
+    }]},
+  {
+  	name:'jessi',
+    age:30
+  }
+  ];
+var str = '';
+  function getData(obj) {
+    str='<ul>';
+    for (var i in obj){
+    	if(typeof obj[i]==='string'){
+    		str += '<li>' + (i + '/ '+ obj[i]) + '</li>'
+      }else {
+    	  str+='<li>';
+    	  getData(obj[i]);
+    	  str+= '</li>'
+    	}
+    }
+    str+= '</ul>'
+  }
+  getData(item);
+document.querySelector('.content').innerHTML = str;
+alert(str);
+  console.log(item)
+</script>
+
+</body>
+</html>
