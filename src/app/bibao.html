@@ -10,36 +10,52 @@
 <body>
 <h1>Hello, world!</h1>
   <script >
-    var i;
-    for(i = 0 ;i< 10 ;i++){
-      (function (i) {
-        var a = document.createElement('a');
-        a.innerHTML = i + '<br>';
-        a.addEventListener('click',function (e) {
-            e.preventDefault();
-            alert(i)
-        })
-        document.body.appendChild(a)
+//    var i;
+//    for(i = 0 ;i< 10 ;i++){
+//      (function (i) {
+//        var a = document.createElement('a');
+//        a.innerHTML = i + '<br>';
+//        a.addEventListener('click',function (e) {
+//            e.preventDefault();
+//            alert(i)
+//        })
+//        document.body.appendChild(a)
+//
+//      })(i)
+//    }
+//
+//    function isFirstLoad() {
+//      var _list = []
+//      return  function (id) {
+//          if(_list.indexOf(id) >= 0){
+//          	return false
+//          }else {
+//          	_list.push(id)
+//            return true
+//          }
+//      }
+//    }
+//    var firstload = isFirstLoad()
+//
+//
+//firstload(10)
+//firstload(10)
+//firstload(20)
+//firstload(20)
 
-      })(i)
+function fun(n,o) {
+  console.log(o);
+  return {
+  	fun: function (m) {
+        return  fun(m,n)
     }
+  }
+}
 
-    function isFirstLoad() {
-      var _list = []
-      return  function (id) {
-          if(_list.indexOf(id) >= 0){
-          	return false
-          }else {
-          	_list.push(id)
-            return true
-          }
-      }
-    }
-    var firstload = isFirstLoad()
-firstload(10)
-firstload(10)
-firstload(20)
-firstload(20)
+
+  var a = fun(0)
+    var a = fun(0).fun(1).fun(2).fun(3)
+
 
 
 
